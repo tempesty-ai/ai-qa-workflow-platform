@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-labelledby="title desc">
+  <title id="title">AI-assisted QA Workflow Platform</title>
+  <desc id="desc">Project notes connecting AI-assisted design, code-driven execution, human review, and evidence-based sharing.</desc>
+  <rect width="1280" height="320" rx="18" fill="#101621"/>
+  <path d="M56 56h1168" stroke="#2b3649"/>
+  <text x="56" y="94" fill="#9caac2" font-family="Arial,sans-serif" font-size="15" letter-spacing="3">PROJECT NOTES / QA + AI ENGINEERING</text>
+  <text x="56" y="147" fill="#f3f5fa" font-family="Arial,sans-serif" font-size="38">AI-assisted QA Workflow Platform</text>
+  <text x="56" y="184" fill="#b8c5da" font-family="Arial,sans-serif" font-size="18">Traceable tests. Reviewable results. Evidence that travels with the work.</text>
+  <g font-family="Arial,sans-serif" font-size="16">
+    <rect x="56" y="226" width="252" height="48" rx="8" fill="#1c293e" stroke="#425a83"/>
+    <text x="82" y="256" fill="#c7d6f3">01 / Design with AI</text>
+    <path d="M322 250h24m-7-6 7 6-7 6" fill="none" stroke="#748bad" stroke-width="2"/>
+    <rect x="364" y="226" width="252" height="48" rx="8" fill="#1b2735" stroke="#34445c"/>
+    <text x="390" y="256" fill="#d7e2f2">02 / Execute with code</text>
+    <path d="M630 250h24m-7-6 7 6-7 6" fill="none" stroke="#748bad" stroke-width="2"/>
+    <rect x="672" y="226" width="252" height="48" rx="8" fill="#182d2c" stroke="#365c57"/>
+    <text x="698" y="256" fill="#bbe2d9">03 / Human review</text>
+    <path d="M938 250h24m-7-6 7 6-7 6" fill="none" stroke="#748bad" stroke-width="2"/>
+    <rect x="980" y="226" width="244" height="48" rx="8" fill="#24233b" stroke="#4c486a"/>
+    <text x="1006" y="256" fill="#d5d0f5">04 / Share evidence</text>
+  </g>
+</svg>
