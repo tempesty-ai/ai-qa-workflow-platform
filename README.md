@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="assets/overview.svg" alt="AI-assisted QA Workflow Platform — Design, Execute, Review, Share" width="100%">
-</p>
-
 # AI-assisted QA Workflow Platform
 
 **테스트 설계부터 자동화 실행, 증적 검수와 결과 공유까지 연결한 QA 플랫폼의 설계·구현 기록.**
@@ -10,9 +6,28 @@ AI는 이슈 분석과 테스트케이스·코드 작성을 지원하고, 자동
 
 **QA Automation · AI-assisted Development · Test Management · Evidence & Review**
 
-[아키텍처](docs/architecture.md) · [개선 사례](docs/case-studies.md) · [설계 결정](docs/decisions.md) · [검증 범위](docs/verification.md)
+[화면으로 보는 흐름](docs/walkthrough.md) · [구현 포인트](docs/engineering-notes.md) · [아키텍처](docs/architecture.md) · [개선 사례](docs/case-studies.md) · [검증 범위](docs/verification.md)
 
 > 이 저장소는 프로젝트 사례를 설명하는 문서 포트폴리오입니다. 실행 가능한 애플리케이션 배포본이 아니며, 원본 운영 코드·실제 이슈·제품 데이터·인증정보는 포함하지 않습니다.
+
+## 먼저 화면으로 보기
+
+**테스트 한 건의 절차, 관찰 결과와 증적을 한 화면에서 확인합니다.** 아래는 로컬 구현을 실행하고 공개용 가상 데이터를 넣어 Computer Use로 촬영한 공유 결과 화면입니다.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/04-shared-result-dark.jpg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/screenshots/05-shared-result-light.jpg">
+  <img src="assets/screenshots/04-shared-result-dark.jpg" alt="공개용 알림 필터 예시: 왼쪽 증적과 오른쪽 테스트 절차·기대결과·판정이 함께 보이는 공유 결과 화면" width="100%">
+</picture>
+
+| 단계 | 화면에서 확인할 수 있는 것 |
+|---|---|
+| [① TC 설계](docs/walkthrough.md#1-tc-설계) | 사전조건·절차·기대결과와 실행 이력 연결 |
+| [② 실행 결과](docs/walkthrough.md#2-실행-결과와-검수) | 자동 판정과 사람 검수의 분리, 실행 당시 문서 |
+| [③ 증적·공유](docs/walkthrough.md#3-증적-확대와-공유) | 촬영 전환·확대, 읽기 전용 공유, 라이트·다크 테마 |
+| [④ 실패·복구](docs/walkthrough.md#4-조회-실패에서-복구까지) | 본문 조회 실패 안내, 분석 제한, 재시도 후 정상 표시 |
+
+예시는 **전체 알림 6건 → 경고 2건 → 전체 6건 복구** 시나리오입니다. 샘플 화면의 필터 조건은 코드로 검사했고, 플랫폼의 기록은 설명을 위해 구성한 fixture입니다. 실제 제품의 통과·검수 실적을 나타내지 않습니다. [캡처 7장과 촬영 범위 보기 →](docs/walkthrough.md)
 
 ## 프로젝트 배경
 
@@ -94,12 +109,12 @@ flowchart LR
 
 AI를 요구사항 정리, 코드 작성, 실패 분석과 검증 보조에 활용했습니다. 포트폴리오에서는 도구 사용 여부뿐 아니라 **문제 정의, 설계 선택, 제약 설정, 검증 근거, 반영 과정**을 함께 설명합니다.
 
-기능 목록은 프로젝트 범위를 나타내며 모든 기능의 단독 개발을 주장하지 않습니다. 개인 담당 범위와 협업 내역은 확인된 내용부터 사례별로 보완할 예정입니다.
+이 기록에서 구체적으로 다루는 변경은 **공유 결과 화면 개선**, **이슈 본문 조회 실패·재시도 처리**, **관련 회귀 검사 보완**입니다. 각 변경에서 문제를 어떻게 좁혔고 어떤 조건을 검증했는지는 [구현 포인트](docs/engineering-notes.md)에 정리했습니다. 플랫폼 전체 기능의 단독 개발을 주장하지 않으며, 개인별 기여율은 확인되지 않아 제시하지 않습니다.
 
 ## 다음 기록
 
-- 공개용 가상 데이터로 재구성한 대표 화면
 - 범용 TC 한 건을 재현하는 최소 데모
 - 사례별 개인 기여와 설계 선택의 배경
+- 실제 기준으로 측정한 테스트 준비·검수 소요 시간
 
-기록 시작: **2026-10-13** · 검증 사례 기준: **2026-10-08**
+기록 시작·공개용 화면 촬영: **2026-10-13** · 원본 검증 사례 기준: **2026-10-08**

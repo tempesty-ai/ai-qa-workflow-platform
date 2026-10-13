@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-13",
+  "layer": "mocked-ui",
+  "sampleFilter": {
+    "initialRows": 6,
+    "warningRows": 2,
+    "resetRows": 6
+  },
+  "pages": [
+    "tc",
+    "results",
+    "share",
+    "source-error",
+    "source-recovery"
+  ],
+  "galleryNavigation": true,
+  "imageDialog": true,
+  "pageErrors": [],
+  "externalRequests": [],
+  "mutationRequests": []
+}
