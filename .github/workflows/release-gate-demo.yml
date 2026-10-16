@@ -1,0 +1,54 @@
+name: Synthetic Release Gate Integration
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  synthetic-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check out reviewed gate implementation
+        uses: actions/checkout@v4
+        with:
+          repository: tempesty-ai/qa-release-gate
+          ref: 8cf46ab48eef79fc939b2212e51bc90e23df3450
+          path: _gate
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Assert synthetic conditional decision (not deployment authorization)
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          import subprocess
+          import sys
+          result = subprocess.run([
+              sys.executable, '_gate/run_workflow_gate.py', '--strict',
+              '--input', 'demo/release-gate/synthetic-evidence.json',
+              '--policy', '_gate/examples/workflow/policy.json',
+              '--as-of', '2026-10-16T00:00:00Z',
+              '--output-dir', 'reports/release-gate-demo',
+          ])
+          if result.returncode != 3:
+              raise SystemExit(f'Expected manual hold (3), got {result.returncode}')
+          report = json.loads(Path('reports/release-gate-demo/result.json').read_text())
+          assert report['decision'] == 'CONDITIONAL_GO'
+          assert report['evidence']['status'] == 'COMPLETE'
+          assert report['risk']['score'] == 15
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: synthetic-release-gate-report
+          path: reports/release-gate-demo/
+          if-no-files-found: error
