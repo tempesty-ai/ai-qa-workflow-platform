@@ -1,0 +1,12 @@
+{
+  "conditional_min": 20,
+  "no_go_min": 45,
+  "max_age_hours": 24,
+  "future_tolerance_minutes": 5,
+  "p2_points": 15,
+  "p3_points": 5,
+  "high_failure_points": 12,
+  "medium_failure_points": 6,
+  "low_failure_points": 3,
+  "flaky_points": 5
+}

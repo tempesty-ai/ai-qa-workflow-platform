@@ -1,0 +1,76 @@
+{
+  "release_id": "REL-2026.05.08",
+  "service": "sample-commerce",
+  "release_owner": "QA",
+  "planned_at": "2026-05-08",
+  "release_type": "minor",
+  "deployment_window": "weekday_evening",
+  "change_summary": "회원 인증, 주문, 결제, 쿠폰 적용 흐름의 소규모 개선 릴리즈",
+  "change_scope": [
+    {
+      "area": "auth",
+      "criticality": "high",
+      "change_size": "medium",
+      "user_impact": "login and account access",
+      "changed_components": ["session refresh", "password reset"],
+      "requires_data_migration": false,
+      "external_dependency": false
+    },
+    {
+      "area": "payment",
+      "criticality": "critical",
+      "change_size": "medium",
+      "user_impact": "checkout completion",
+      "changed_components": ["card payment", "coupon apply", "payment callback"],
+      "requires_data_migration": false,
+      "external_dependency": true
+    },
+    {
+      "area": "catalog",
+      "criticality": "medium",
+      "change_size": "small",
+      "user_impact": "product search",
+      "changed_components": ["filter count", "search result sort"],
+      "requires_data_migration": false,
+      "external_dependency": false
+    },
+    {
+      "area": "order",
+      "criticality": "high",
+      "change_size": "small",
+      "user_impact": "order history lookup",
+      "changed_components": ["order history query"],
+      "requires_data_migration": false,
+      "external_dependency": false
+    }
+  ],
+  "automation_coverage": {
+    "overall": 72,
+    "critical_flow": 58,
+    "changed_area": 63,
+    "manual_supplement_done": true
+  },
+  "quality_signals": {
+    "smoke_pass_rate": 83,
+    "regression_pass_rate": 78,
+    "api_pass_rate": 92,
+    "flaky_test_count": 2,
+    "blocked_test_count": 1
+  },
+  "business_window": {
+    "peak_season": false,
+    "campaign_active": true,
+    "customer_support_ready": true,
+    "monitoring_owner_ready": true,
+    "rollback_plan_ready": true,
+    "rollback_tested": false
+  },
+  "release_readiness": {
+    "release_note_ready": true,
+    "deployment_checklist_ready": true,
+    "qa_signoff_ready": false,
+    "product_owner_approval": true,
+    "operations_approval": false,
+    "known_issues_documented": true
+  }
+}

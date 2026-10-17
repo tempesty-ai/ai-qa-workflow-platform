@@ -1,0 +1,13 @@
+id,layer,suite,case_name,area,criticality,status,execution_type,evidence,flaky,last_passed_build,failure_reason
+TC-001,ui,smoke,login_success,auth,critical,passed,automated,screenshot,false,2026.05.07.2,
+TC-002,ui,smoke,checkout_card_payment,payment,critical,failed,automated,screenshot,false,2026.05.07.2,confirmation timeout
+TC-003,ui,smoke,order_history,order,high,passed,automated,screenshot,false,2026.05.07.2,
+TC-004,ui,regression,catalog_search,catalog,medium,passed,automated,trace,false,2026.05.07.2,
+TC-005,ui,regression,coupon_apply,payment,high,failed,automated,screenshot,false,2026.05.07.1,discount not updated
+TC-006,ui,regression,password_reset,auth,medium,passed,automated,screenshot,false,2026.05.07.2,
+TC-007,api,api,payment_status_callback,payment,critical,passed,automated,api-log,false,2026.05.07.2,
+TC-008,api,api,user_session_refresh,auth,high,passed,automated,api-log,false,2026.05.07.2,
+TC-009,visual,visual,mobile_checkout_layout,payment,high,failed,manual,screenshot,true,2026.05.06.4,button overlap
+TC-010,visual,visual,mobile_catalog_sort,catalog,medium,warning,manual,screenshot,true,2026.05.07.1,sort order differs
+TC-011,ui,regression,guest_checkout,payment,critical,blocked,manual,none,false,2026.05.06.4,test account locked
+TC-012,monitoring,post_deploy,payment_error_rate_alert,payment,high,passed,manual,checklist,false,2026.05.07.2,

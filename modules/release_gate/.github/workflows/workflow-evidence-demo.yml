@@ -1,0 +1,44 @@
+name: Workflow Evidence Demo
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  synthetic-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install test dependency
+        run: python -m pip install 'pytest>=8,<10'
+      - name: Verify proposed and legacy behavior
+        run: python -m pytest -q
+      - name: Assert all synthetic decisions and strict exits
+        shell: python
+        run: |
+          import subprocess
+          import sys
+          for scenario, expected in [('go', 0), ('conditional_go', 3), ('no_go', 1), ('evidence_insufficient', 2)]:
+              completed = subprocess.run([
+                  sys.executable, 'run_workflow_gate.py', '--strict',
+                  '--input', f'examples/workflow/{scenario}.json',
+                  '--policy', 'examples/workflow/policy.json',
+                  '--as-of', '2026-10-16T00:00:00Z',
+                  '--output-dir', f'reports/workflow/{scenario}',
+              ])
+              if completed.returncode != expected:
+                  raise SystemExit(f'{scenario}: expected exit {expected}, got {completed.returncode}')
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: synthetic-workflow-reports
+          path: reports/workflow/
+          if-no-files-found: error

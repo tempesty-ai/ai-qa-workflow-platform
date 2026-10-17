@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "release": {
+    "id": "SYNTHETIC-DEMO-001",
+    "candidate_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "environment": "synthetic-local"
+  },
+  "scope": [
+    {
+      "case_id": "BASE-001",
+      "suite": "baseline",
+      "criticality": "critical"
+    },
+    {
+      "case_id": "TARGET-001",
+      "suite": "target",
+      "criticality": "high"
+    }
+  ],
+  "results": [
+    {
+      "case_id": "BASE-001",
+      "candidate_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "environment": "synthetic-local",
+      "observed_at": "2026-10-16T00:00:00Z",
+      "status": "passed",
+      "failure_kind": "none",
+      "flaky": false,
+      "review": "approved",
+      "evidence_refs": [
+        "synthetic://BASE-001/assertion"
+      ]
+    },
+    {
+      "case_id": "TARGET-001",
+      "candidate_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "environment": "synthetic-local",
+      "observed_at": "2026-10-16T00:00:00Z",
+      "status": "error",
+      "failure_kind": "environment",
+      "flaky": false,
+      "review": "pending",
+      "evidence_refs": []
+    }
+  ],
+  "defects": [],
+  "readiness": {
+    "qa_signoff": true,
+    "operations_approval": true,
+    "rollback_tested": true,
+    "monitoring_owner": "Synthetic release owner",
+    "rollback_trigger": "Synthetic smoke assertion fails"
+  },
+  "conditional_acceptance": null
+}

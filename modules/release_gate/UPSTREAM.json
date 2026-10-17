@@ -1,0 +1,123 @@
+{
+  "source": "https://github.com/tempesty-ai/qa-release-gate",
+  "commit": "cde5b8c31205ca08fb54f94da1939a8820442444",
+  "normalization": "UTF-8 text with LF newlines",
+  "files": [
+    {
+      "path": ".github/workflows/gate.yml",
+      "normalized_sha256": "de7a0340712a8803a7ab978e261bc33efd9d769d922cbaa25d0e8eb474f2aa08"
+    },
+    {
+      "path": ".github/workflows/workflow-evidence-demo.yml",
+      "normalized_sha256": "852e07d3342a41d081498f1cdd19bbe8a26b05e7a1a58f103f227a04f23b67f4"
+    },
+    {
+      "path": ".gitignore",
+      "normalized_sha256": "8ddb4297039868589e13068542d2629c9358901d427a3c119219120c51152e3c"
+    },
+    {
+      "path": "dashboard/streamlit_app.py",
+      "normalized_sha256": "4c5f80ae1867ccfabccb196028e4e5821a65ec04264a5f6b9a24d317d1ef13ff"
+    },
+    {
+      "path": "data/change_scope_sample.json",
+      "normalized_sha256": "78024045bdb08041145e1f7c2ae740a735c78233cb1b17382e25f3ffb3fdb8a8"
+    },
+    {
+      "path": "data/defects_sample.csv",
+      "normalized_sha256": "00f86afb90ecd24ad206f46c33dc8e66984c20a5cc4213420d58c0b5f53e184f"
+    },
+    {
+      "path": "data/release_sample.json",
+      "normalized_sha256": "81252731ba74b82e4a611d770d48b3d05d5a74f23d9aa2f44e0247ab3118f7da"
+    },
+    {
+      "path": "data/test_results_sample.csv",
+      "normalized_sha256": "a251e12ff7ba119f2b2b839c0333cecc6604e62baacd540a9674ea732e2910cd"
+    },
+    {
+      "path": "docs/workflow-quality-gate-policy.md",
+      "normalized_sha256": "5d83b7507f25f88aa8bdb9b05d054c906d26ab92abebec9ccb6c45afd1ec3485"
+    },
+    {
+      "path": "examples/workflow/conditional_go.json",
+      "normalized_sha256": "15d1343352fac6d8716dfc52e2eeb96e6d0fc4369e58dac5c43addd8b356c9b0"
+    },
+    {
+      "path": "examples/workflow/evidence_insufficient.json",
+      "normalized_sha256": "565c9ce04d857bca53da5a3d4ee691c7584eb02aede59342172f76f99cce39b6"
+    },
+    {
+      "path": "examples/workflow/go.json",
+      "normalized_sha256": "346e3b2399ba6f84e3a918c484233357074533145860fab900e1548677be227b"
+    },
+    {
+      "path": "examples/workflow/no_go.json",
+      "normalized_sha256": "cc765446b04140e0abf354a039dc8b64567cf557e9f2be3ee986ad3cb779c4c3"
+    },
+    {
+      "path": "examples/workflow/policy.json",
+      "normalized_sha256": "43e50116443648cd333f4f1ee68e3848a106d8d45c2098c64f4829f96c2fea88"
+    },
+    {
+      "path": "examples/workflow/README.md",
+      "normalized_sha256": "c4931891f912164cbb53293db6870628f891f593b2f4fb01eaa0914cc7d46d60"
+    },
+    {
+      "path": "gate/__init__.py",
+      "normalized_sha256": "279655e2abb024e34675ecd21a214f9c11c442aa0244060abcc833ab7f1c8e6a"
+    },
+    {
+      "path": "gate/data_loader.py",
+      "normalized_sha256": "85fd8062c8831497531e815fd34dad6f033cdaffcd6a354a93d1deec848397cb"
+    },
+    {
+      "path": "gate/release_gate.py",
+      "normalized_sha256": "40e30088a75fa202641ecf8f37ce455b9bd899437c58d405cf81cca5781c432e"
+    },
+    {
+      "path": "gate/report_generator.py",
+      "normalized_sha256": "93af7591e32e4a358a78cd276c9947e7a40b0a4902352c4068ba3a59244021f2"
+    },
+    {
+      "path": "gate/risk_model.py",
+      "normalized_sha256": "4e03de286058664533fbc8644a8e066c58d5ffd169f697b4fb90e3cd47dd5198"
+    },
+    {
+      "path": "gate/workflow_policy.py",
+      "normalized_sha256": "51243c9ee8812452188e757d1ea9dede4d98e7144638ea4da53566df4f201007"
+    },
+    {
+      "path": "pytest.ini",
+      "normalized_sha256": "276d9a8f580599beaa7f96a66a1fb4cb4e6bed34bfee92ca33df1135ceb80c69"
+    },
+    {
+      "path": "README.md",
+      "normalized_sha256": "c026b6903f31a306dd95a768bd0bcc1e441cad578ca20ed31d2dcbc5e3ed1fad"
+    },
+    {
+      "path": "requirements.txt",
+      "normalized_sha256": "8fc1a610951ef4c12c8e00c226f7a61b9c3f4d40e28b52fa95b4f4767313fc67"
+    },
+    {
+      "path": "run_gate.py",
+      "normalized_sha256": "5f17460e3e0a22b34d2d92060e456fcc41b2f312fcd915a92c9f24cec5e49c33"
+    },
+    {
+      "path": "run_workflow_gate.py",
+      "normalized_sha256": "c4efecf13b23f0145fb3efeacbf0175e306332c8b03ba9118481e3d7815668e9"
+    },
+    {
+      "path": "tests/test_release_gate.py",
+      "normalized_sha256": "f2bbe1748737c316dec0915161e42c9e81b7df9bb99f533534ba55c586921fec"
+    },
+    {
+      "path": "tests/test_risk_model.py",
+      "normalized_sha256": "9564ec5aeb56e7eb31258a02c0c7bf43795c504a160d28fccf46de91b83fdba4"
+    },
+    {
+      "path": "tests/test_workflow_policy.py",
+      "normalized_sha256": "d403d29824eec3a69696d2feb5a4474f92ad680825847e78644e17e9f667d7de"
+    }
+  ]
+}
