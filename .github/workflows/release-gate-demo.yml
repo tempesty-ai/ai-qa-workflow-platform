@@ -1,4 +1,4 @@
-name: Synthetic Release Gate Integration
+name: TMS Integration
 
 on:
   pull_request:
@@ -10,23 +10,22 @@ permissions:
   contents: read
 
 jobs:
-  synthetic-contract:
+  unified-tms:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Check out reviewed gate implementation
-        uses: actions/checkout@v4
-        with:
-          repository: tempesty-ai/qa-release-gate
-          ref: 8cf46ab48eef79fc939b2212e51bc90e23df3450
-          path: _gate
-          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Assert synthetic conditional decision (not deployment authorization)
+      - name: Install test dependency
+        run: python -m pip install -r requirements-dev.txt
+      - name: Verify TMS and original gate behavior
+        run: python -m pytest -q
+      - name: Execute all four synthetic TMS journeys
+        run: python -m tms demo --output-dir reports/tms-demo
+      - name: Verify compatibility with the previous public export and CSV gate
         shell: python
         run: |
           import json
@@ -34,9 +33,9 @@ jobs:
           import subprocess
           import sys
           result = subprocess.run([
-              sys.executable, '_gate/run_workflow_gate.py', '--strict',
+              sys.executable, 'modules/release_gate/run_workflow_gate.py', '--strict',
               '--input', 'demo/release-gate/synthetic-evidence.json',
-              '--policy', '_gate/examples/workflow/policy.json',
+              '--policy', 'modules/release_gate/examples/workflow/policy.json',
               '--as-of', '2026-10-16T00:00:00Z',
               '--output-dir', 'reports/release-gate-demo',
           ])
@@ -46,9 +45,14 @@ jobs:
           assert report['decision'] == 'CONDITIONAL_GO'
           assert report['evidence']['status'] == 'COMPLETE'
           assert report['risk']['score'] == 15
+          legacy = subprocess.run([sys.executable, 'modules/release_gate/run_gate.py', '--strict'], capture_output=True, text=True)
+          print(legacy.stdout)
+          assert legacy.returncode == 1 and 'Release Gate: NO_GO' in legacy.stdout, 'Expected legacy NO_GO, not an execution error'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: synthetic-release-gate-report
-          path: reports/release-gate-demo/
+          name: synthetic-tms-reports
+          path: |
+            reports/
+            modules/release_gate/reports/
           if-no-files-found: error

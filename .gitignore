@@ -11,3 +11,5 @@ Thumbs.db
 .local-capture/
 reports/
 _gate/
+.pytest_cache/
+.venv/

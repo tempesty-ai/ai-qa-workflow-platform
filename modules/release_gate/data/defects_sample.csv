@@ -1,0 +1,9 @@
+id,title,severity,status,area,affected_flow,customer_impact,workaround,reopened,age_days,found_in,owner,target_fix,verified_by_qa,linked_test
+BUG-101,Payment confirmation intermittently fails,P1,open,payment,checkout,high,false,true,4,smoke,backend,REL-2026.05.08,false,TC-002
+BUG-102,Login error message is unclear,P2,open,auth,login,medium,true,false,2,exploratory,frontend,post-release,true,TC-006
+BUG-103,Catalog filter count mismatch,P3,open,catalog,search,low,true,false,9,regression,frontend,backlog,false,TC-004
+BUG-104,Order history page loads slowly,P2,resolved,order,order_history,medium,true,true,6,performance,backend,REL-2026.05.08,true,TC-003
+BUG-105,Mobile checkout button overlaps footer,P2,open,payment,checkout,medium,true,false,1,visual,frontend,REL-2026.05.08,false,TC-009
+BUG-106,Coupon discount is not reflected after refresh,P2,open,payment,coupon,high,false,false,3,regression,backend,REL-2026.05.08,false,TC-005
+BUG-107,Session refresh creates duplicate audit log,P3,resolved,auth,session,low,true,false,5,api,backend,REL-2026.05.08,true,TC-008
+BUG-108,Search result sorting differs on mobile,P3,open,catalog,search,low,true,false,12,visual,frontend,backlog,false,TC-010

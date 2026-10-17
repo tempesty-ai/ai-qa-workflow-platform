@@ -1,0 +1,38 @@
+name: QA Release Gate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  release-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # The gate's own decision logic is regression-tested before it is trusted
+      # to block anything.
+      - name: Verify gate logic
+        run: pytest -q
+
+      # --strict exits 1 on NO_GO, so the build fails and the merge is blocked.
+      - name: Run release gate
+        run: python run_gate.py --strict
+
+      # Uploaded even on failure: a NO_GO is exactly when the report is needed.
+      - name: Upload gate report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-gate-report
+          path: reports/release_gate_report.md
+          if-no-files-found: error

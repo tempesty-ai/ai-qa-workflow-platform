@@ -1,0 +1,19 @@
+{
+  "changed_files": 64,
+  "changed_modules": ["auth", "payment", "catalog", "order"],
+  "database_migration": false,
+  "feature_flags": ["new_checkout_summary", "coupon_refresh_fix"],
+  "external_dependencies": ["payment_gateway_stub"],
+  "risk_notes": [
+    "payment 영역은 매출과 직접 연결되는 critical flow입니다.",
+    "auth 영역 변경은 로그인 실패 시 고객 접근성에 영향을 줄 수 있습니다.",
+    "campaign_active 상태에서는 checkout 실패가 평소보다 큰 고객 영향을 만들 수 있습니다.",
+    "rollback_plan_ready는 true지만 rollback_tested가 false라 조건부 승인 시 보강 확인이 필요합니다."
+  ],
+  "manual_qa_focus": [
+    "mobile checkout layout",
+    "coupon apply and refresh",
+    "password reset",
+    "guest checkout"
+  ]
+}
